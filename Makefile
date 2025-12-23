@@ -13,6 +13,8 @@ vim_session:
 
 ######################################################################
 
+mirrors += files
+
 ### Makestuff
 
 Sources += Makefile
@@ -31,7 +33,7 @@ makestuff:
 
 -include makestuff/os.mk
 
-## -include makestuff/pipeR.mk
+-include makestuff/mirror.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
