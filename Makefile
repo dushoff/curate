@@ -1,4 +1,4 @@
-## This is [project.Makefile] …
+## This is curate; for my Photos and maybe other arc files
 
 ## This section is for Dushoff-style vim-setup and vim targeting
 ## You can delete it if you don't want it
@@ -10,6 +10,19 @@ vim_session:
 	bash -cl "vmt"
 
 ## -include makestuff/perl.def
+
+######################################################################
+
+key = $(wildcard /media/*/*/Photos)
+
+down:
+	rsync -a --update --progress --itemize-changes Photos/ $(key)/
+
+out:
+	sudo umount $(dir $(key))
+
+## ln -s ~/Dropbox/Photos . ##
+Ignore += Photos
 
 ######################################################################
 
