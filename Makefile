@@ -9,7 +9,7 @@ Ignore = target.mk
 vim_session:
 	bash -cl "vmt"
 
-## -include makestuff/perl.def
+-include makestuff/perl.def
 
 ######################################################################
 
@@ -32,6 +32,41 @@ Ignore += album
 ######################################################################
 
 mirrors += files
+
+Ignore += *.out
+examine.out: files/list.tsv examine.pl
+	$(PUSH)
+
+album: link.out
+link.out: Photos.files.tsv link.pl
+	$(PUSH)
+
+album: link.out
+	bash < $@
+
+slides: | album
+	feh -FzZrD 3 album/
+
+mlink.out: Photos.files.tsv mlink.pl
+	$(PUSH)
+
+documentary:
+	mplayer -fs reels/**/*.* 
+
+######################################################################
+
+## Movie pipelines NOt really working
+theatre: | Photos
+	mpv --shuffle --recursive $|
+
+studio: | Photos
+	vlc --random --playlist-autostart $|
+
+## Photos.files.tsv: filetree.py
+%.files.tsv: filetree.py %
+	python $< $* > $@
+
+######################################################################
 
 ### Makestuff
 
