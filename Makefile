@@ -64,6 +64,7 @@ studio: | Photos
 
 ## Photos.files.tsv: filetree.py
 Sources += $(wildcard *.py)
+Ignore += *.files.tsv
 %.files.tsv: filetree.py %
 	python $< $* > $@
 
