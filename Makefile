@@ -18,11 +18,16 @@ key = $(wildcard /media/*/*/Photos)
 down:
 	rsync -a --update --progress --itemize-changes Photos/ $(key)/
 
+up:
+	rsync -a --update --progress --itemize-changes $(key)/ Photos/
+
 out:
 	sudo umount $(dir $(key))
 
 ## ln -s ~/Dropbox/Photos . ##
 Ignore += Photos
+
+Ignore += album
 
 ######################################################################
 
