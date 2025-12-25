@@ -63,6 +63,7 @@ studio: | Photos
 	vlc --random --playlist-autostart $|
 
 ## Photos.files.tsv: filetree.py
+Sources += $(wildcard *.py)
 %.files.tsv: filetree.py %
 	python $< $* > $@
 
