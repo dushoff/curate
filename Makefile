@@ -7,11 +7,13 @@ current: target
 Ignore = target.mk
 
 vim_session:
-	bash -cl "vmt"
+	bash -cl "vmt notes.md"
 
 -include makestuff/perl.def
 
 ######################################################################
+
+Sources += notes.md
 
 key = $(wildcard /media/*/*/Photos)
 
@@ -47,6 +49,7 @@ album: link.out
 slides: | album
 	feh -FzZrD 3 album/
 
+Ignore += reels
 reels: mlink.out ;
 mlink.out: Photos.files.tsv mlink.pl
 	$(PUSH)
