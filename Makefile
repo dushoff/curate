@@ -37,7 +37,7 @@ Ignore += *.out
 examine.out: files/list.tsv examine.pl
 	$(PUSH)
 
-album: link.out
+album: link.out ;
 link.out: Photos.files.tsv link.pl
 	$(PUSH)
 
@@ -47,6 +47,7 @@ album: link.out
 slides: | album
 	feh -FzZrD 3 album/
 
+reels: mlink.out ;
 mlink.out: Photos.files.tsv mlink.pl
 	$(PUSH)
 
