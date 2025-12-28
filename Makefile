@@ -43,9 +43,6 @@ album: link.out ;
 link.out: Photos.files.tsv link.pl
 	$(PUSH)
 
-album: link.out
-	bash < $@
-
 slides: | album
 	feh -FzZrD 3 album/
 
