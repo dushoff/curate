@@ -33,6 +33,7 @@ Ignore += album
 
 ######################################################################
 
+Sources += $(wildcard slow/*)
 mirrors += files
 
 Ignore += *.out
@@ -40,7 +41,7 @@ examine.out: files/list.tsv examine.pl
 	$(PUSH)
 
 album: link.out ;
-link.out: Photos.files.tsv link.pl
+link.out: slow/Photos.files.tsv link.pl
 	$(PUSH)
 
 slides: | album
@@ -48,7 +49,7 @@ slides: | album
 
 Ignore += reels
 reels: mlink.out ;
-mlink.out: Photos.files.tsv mlink.pl
+mlink.out: slow/Photos.files.tsv mlink.pl
 	$(PUSH)
 
 documentary:
@@ -63,10 +64,9 @@ theatre: | Photos
 studio: | Photos
 	vlc --random --playlist-autostart $|
 
-## Photos.files.tsv: filetree.py
 Sources += $(wildcard *.py)
 Ignore += *.files.tsv
-%.files.tsv: filetree.py %
+slowtarget/%.files.tsv: filetree.py %
 	python $< $* > $@
 
 ######################################################################
@@ -90,6 +90,7 @@ makestuff:
 -include makestuff/os.mk
 
 -include makestuff/mirror.mk
+-include makestuff/slowtarget.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
