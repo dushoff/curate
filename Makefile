@@ -47,6 +47,10 @@ link.out: slow/Photos.files.tsv link.pl
 slides: | album
 	feh -FzZrD 3 album/
 
+## 058h.slides:
+%.slides:
+	feh album/*/$** album/*/*/$**
+
 Ignore += reels
 reels: mlink.out ;
 mlink.out: slow/Photos.files.tsv mlink.pl
