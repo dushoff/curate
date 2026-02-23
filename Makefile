@@ -28,7 +28,6 @@ out:
 
 ## ln -s ~/Dropbox/Photos . ##
 Ignore += Photos
-
 Ignore += album
 
 ######################################################################
@@ -40,7 +39,7 @@ Ignore += *.out
 examine.out: files/list.tsv examine.pl
 	$(PUSH)
 
-album: link.out ;
+album: link.out
 link.out: slow/Photos.files.tsv link.pl
 	$(PUSH)
 

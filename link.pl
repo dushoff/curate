@@ -5,6 +5,7 @@ use File::Path qw(make_path);
 use Cwd;
 
 my $cwd = getcwd."/";  
+my $targetdir = "album";
 
 my %fh;
 my %dh;
@@ -55,7 +56,7 @@ while(<>){
 foreach my $k (keys %fh){
 	my $photo = my $new = $fh{$k};
 	$new =~ s/[()& ,?!-]+/_/g;
-	$new =~ s/.*Photos/reels/;
+	$new =~ s/.*Photos/$targetdir/;
 	my $nd = $new;
 	$nd =~ s|[^/]*$||;
 	unless (defined $dh{$nd}){
