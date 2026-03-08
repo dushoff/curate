@@ -40,6 +40,8 @@ examine.out: files/list.tsv examine.pl
 	$(PUSH)
 
 album: link.out
+	bash < $<
+
 link.out: slow/Photos.files.tsv link.pl
 	$(PUSH)
 

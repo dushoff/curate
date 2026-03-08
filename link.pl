@@ -62,7 +62,7 @@ foreach my $k (keys %fh){
 	unless (defined $dh{$nd}){
 		make_path($nd);
 	} else {$dh{$nd} = 1};
-	say "## $nd";
-	say("cd $nd && /bin/ln -fs uu") or die "you suck";
+	## say "## $nd";
+	say("cd $cwd$nd && /bin/ln -fs $cwd\"$photo\" .") or die "you suck";
 	## say $cwd.$photo . " " . $cwd.$new;
 }
