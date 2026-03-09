@@ -51,8 +51,9 @@ slides: | album
 ## 058h.slides:
 %.slides:
 	feh album/*/$** album/*/*/$**
-	
-## ls album/**/*.* | wc 
+
+count: 
+	ls album/**/*.* | wc 
 Ignore += reels
 reels: mlink.out ;
 mlink.out: slow/Photos.files.tsv mlink.pl
